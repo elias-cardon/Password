@@ -215,8 +215,32 @@ class PasswordValidatorGUI:
         # Crée une chaîne avec toutes les astuces, séparées par des sauts de ligne
         tip_message = "\n\n".join(tips)
 
-        # Affiche une boîte de dialogue avec les astuces
-        tk.messagebox.showinfo("Astuces pour créer un mot de passe fort", tip_message)
+        # Crée une nouvelle fenêtre pour afficher les astuces
+        tips_window = tk.Toplevel(self.master)
+        tips_window.title("Astuces pour créer un mot de passe fort")
+        tips_window.geometry("400x400")
+
+        # Centre la fenêtre des astuces sur l'écran
+        screen_width = tips_window.winfo_screenwidth()
+        screen_height = tips_window.winfo_screenheight()
+        x_cordinate = int((screen_width / 2) - (400 / 2))
+        y_cordinate = int((screen_height / 2) - (400 / 2))
+        tips_window.geometry("{}x{}+{}+{}".format(400, 400, x_cordinate, y_cordinate))
+
+        # Crée un widget Text pour afficher le message des astuces et l'ajoute à la fenêtre des astuces
+        tips_text = tk.Text(tips_window, font=("Arial", 12), padx=20, pady=20, wrap=tk.WORD, relief=tk.FLAT,
+                            bg=tips_window.cget("bg"))
+        tips_text.insert(tk.END, tip_message)
+        tips_text.grid(row=0, column=0, sticky="nsew")  # Utilise grid() au lieu de pack()
+        tips_text.config(state=tk.DISABLED)  # Empêche la modification du texte
+
+        # Crée un bouton "OK" pour fermer la fenêtre des astuces et l'ajoute à la fenêtre des astuces
+        ok_button = ttk.Button(tips_window, text="OK", command=tips_window.destroy)
+        ok_button.grid(row=1, column=0, pady=20)  # Utilise grid() au lieu de pack()
+
+        # Configure le poids des lignes et des colonnes pour la mise en page
+        tips_window.grid_rowconfigure(0, weight=1)
+        tips_window.grid_columnconfigure(0, weight=1)
 
 
 if __name__ == '__main__':
