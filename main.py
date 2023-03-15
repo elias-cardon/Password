@@ -99,8 +99,7 @@ class PasswordValidatorGUI:
 
         if errors:
             # Si des erreurs sont retournées, affiche un message d'erreur
-            error_message = "Le mot de passe n'est pas valide : \n\n{}".format("\n".join(errors))
-            messagebox.showerror("Erreur", error_message)
+            self.show_validation_errors(errors)
         else:
             # Si le mot de passe est valide, active le bouton "Crypter"
             messagebox.showinfo("Succès", "Le mot de passe est valide.")
@@ -124,6 +123,38 @@ class PasswordValidatorGUI:
                 "Le mot de passe doit contenir au moins un caractère spécial, comme une blague secrète entre amis !")
 
         return errors
+
+    def show_validation_errors(self, errors):
+        # Crée une chaîne avec toutes les erreurs, séparées par des sauts de ligne
+        error_message = "\n\n".join(errors)
+
+        # Crée une nouvelle fenêtre pour afficher les erreurs
+        errors_window = tk.Toplevel(self.master)
+        errors_window.title("Erreurs de validation")
+        errors_window.geometry("400x400")
+
+        # Centre la fenêtre des erreurs sur l'écran
+        screen_width = errors_window.winfo_screenwidth()
+        screen_height = errors_window.winfo_screenheight()
+        x_cordinate = int((screen_width / 2) - (400 / 2))
+        y_cordinate = int((screen_height / 2) - (400 / 2))
+        errors_window.geometry("{}x{}+{}+{}".format(400, 400, x_cordinate, y_cordinate))
+
+        # Crée un widget Text pour afficher le message des erreurs et l'ajoute à la fenêtre des erreurs
+        errors_text = tk.Text(errors_window, font=("Arial", 10), padx=20, pady=20, wrap=tk.WORD, relief=tk.FLAT,
+                              bg=errors_window.cget("bg"))
+        errors_text.insert(tk.END, error_message)
+        errors_text.grid(row=0, column=0, sticky="nsew")
+        errors_text.config(state=tk.DISABLED)
+
+        # Crée un bouton "OK" pour fermer la fenêtre des erreurs et l'ajoute à la fenêtre des erreurs
+        ok_button = ttk.Button(errors_window, text="OK", command=errors_window.destroy)
+        ok_button.grid(row=1, column=0, pady=20)
+
+        # Configure le poids des lignes et des colonnes pour la mise en page
+        errors_window.grid_rowconfigure(0, weight=1)
+        errors_window.grid_columnconfigure(0, weight=1)
+
 
     def encrypt_password(self):
         # Récupère le mot de passe de l'entrée
