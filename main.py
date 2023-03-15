@@ -205,11 +205,11 @@ class PasswordValidatorGUI:
     def show_password_tips(self):
         # Liste des astuces pour créer un mot de passe fort
         tips = [
-            "Utilisez au moins 8 caractères.",
-            "Utilisez une combinaison de lettres majuscules et minuscules.",
-            "Utilisez des chiffres et des caractères spéciaux.",
-            "N'utilisez pas de mots courants ou de séquences de chiffres.",
-            "Changez régulièrement de mot de passe."
+            "Votre mot de passe doit être plus long que le prénom d'un Schtroumpf (au moins 8 caractères).",
+            "Mélangez majuscules et minuscules comme si vous étiez en colère contre votre clavier.",
+            "Incorporez des chiffres et des caractères spéciaux, tels que $, %, &, #, comme un véritable pirate informatique.",
+            "Évitez les mots courants et les séquences de chiffres – ils sont aussi faciles à deviner qu'un code PIN 1234.",
+            "Changez de mot de passe comme vous changez de chaussettes – régulièrement (on l'espère !)"
         ]
 
         # Crée une chaîne avec toutes les astuces, séparées par des sauts de ligne
