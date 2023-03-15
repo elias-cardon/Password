@@ -110,15 +110,18 @@ class PasswordValidatorGUI:
         errors = []
 
         if len(password) < 8:
-            errors.append("Le mot de passe doit contenir au moins 8 caractères.")
+            errors.append(
+                "Le mot de passe est trop court, comme une baguette trop cuite ! 8 caractères, s'il vous plaît.")
         if not re.search("[a-z]", password):
-            errors.append("Le mot de passe doit contenir au moins une lettre minuscule.")
+            errors.append("Le mot de passe a besoin d'une lettre minuscule, comme un petit sourire !")
         if not re.search("[A-Z]", password):
-            errors.append("Le mot de passe doit contenir au moins une lettre majuscule.")
+            errors.append("Le mot de passe a besoin d'une lettre majuscule, comme un grand éclat de rire !")
         if not re.search("[0-9]", password):
-            errors.append("Le mot de passe doit contenir au moins un chiffre.")
+            errors.append(
+                "Le mot de passe doit contenir au moins un chiffre, comme le nombre de fois où vous avez ri aujourd'hui !")
         if not re.search("[!@#$%^&*()_+-={};':\"|,.<>?~`]", password):
-            errors.append("Le mot de passe doit contenir au moins un caractère spécial.")
+            errors.append(
+                "Le mot de passe doit contenir au moins un caractère spécial, comme une blague secrète entre amis !")
 
         return errors
 
