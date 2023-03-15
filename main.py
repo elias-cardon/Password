@@ -51,12 +51,12 @@ class PasswordValidatorGUI:
 
         self.generate_button = ttk.Button(self.button_frame, text="Générer", command=self.generate_password,
                                           cursor="hand2", style="TButton.Generate.TButton")
-        self.generate_button.grid(row=1, column=0, padx=5)
+        self.generate_button.grid(row=1, column=0, padx=5, pady=20)
 
         self.check_strength_button = ttk.Button(self.button_frame, text="Vérifier la force",
                                                 command=self.check_password_strength, cursor="hand2",
                                                 style="TButton.CheckStrength.TButton")
-        self.check_strength_button.grid(row=1, column=1, padx=5)
+        self.check_strength_button.grid(row=1, column=1, padx=5, pady=20)
 
         self.tips_button = ttk.Button(self.button_frame, text="Astuces", command=self.show_password_tips,
                                       cursor="hand2", style="TButton.Tips.TButton")
