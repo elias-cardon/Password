@@ -83,7 +83,7 @@ class PasswordValidatorGUI:
         self.master.style.configure("TButton.CheckStrength.TButton", foreground="white", background="purple",
                                 font=("Arial", 12), padding=8, borderwidth=0)
         self.master.style.map("TButton.CheckStrength.TButton", foreground=[("active", "white"), ("disabled", "gray")],
-                          background=[("active", "darkpurple"), ("disabled", "lightgray")])
+                          background=[("active", "pink"), ("disabled", "lightgray")])
 
         self.master.style.configure("TButton.Tips.TButton", foreground="white", background="gray", font=("Arial", 12),
                                 padding=8, borderwidth=0)
