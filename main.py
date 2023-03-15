@@ -24,13 +24,13 @@ class PasswordValidatorGUI:
         self.validation_frame = tk.Frame(self.master, padx=10, pady=10)
         self.validation_frame.pack()
 
-        self.password_label = tk.Label(self.validation_frame, text="Password", fg="indigo", font=("Arial", 14))
+        self.password_label = tk.Label(self.validation_frame, text="Password", fg="indigo", font=("Arial", 20))
         self.password_label.grid(row=0, column=0, pady=5)
 
-        self.password_entry = ttk.Entry(self.validation_frame, width=20, show="*")
+        # Modifie la valeur de "width" pour augmenter la taille du champ de texte du mot de passe
+        self.password_entry = ttk.Entry(self.validation_frame, width=30, show="*")
         self.password_entry.grid(row=1, column=0, pady=5)
         self.password_entry.focus()
-        self.validation_frame.columnconfigure(0, weight=1)
 
         # Affiche l'étiquette de force du mot de passe
         self.strength_label = tk.Label(self.master, text="Force du mot de passe : ", font=("Arial", 12))
