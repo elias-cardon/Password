@@ -1,10 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
-from tkinter import messagebox
-import re
-import hashlib
-import random
-import string
+from tkinter import ttk, messagebox
+import re, hashlib, random, string
 
 
 class PasswordValidatorGUI:
@@ -85,7 +81,7 @@ class PasswordValidatorGUI:
         self.master.style.map("TButton.CheckStrength.TButton", foreground=[("active", "white"), ("disabled", "gray")],
                           background=[("active", "pink"), ("disabled", "lightgray")])
 
-        self.master.style.configure("TButton.Tips.TButton", foreground="white", background="gray", font=("Arial", 12),
+        self.master.style.configure("TButton.Tips.TButton", foreground="white", background="#F4C430", font=("Arial", 12),
                                 padding=8, borderwidth=0)
         self.master.style.map("TButton.Tips.TButton", foreground=[("active", "white")],
                           background=[("active", "black")])
